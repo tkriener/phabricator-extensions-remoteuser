@@ -3,12 +3,12 @@
 final class PhutilAuthAdapterRemoteUser extends PhutilAuthAdapter {
 
   public function getProviderName() {
-    return pht('RemoteUser');
+    return pht('Uni Heidelberg - UniID');
   }
 
   public function getDescriptionForCreate() {
     return pht(
-      'Configure a connection to use web server authentication '.
+      'Configure a connection to use Uni Heidelberg\'s UniID '.
       'credentials to log in to Phabricator.');
   }
 

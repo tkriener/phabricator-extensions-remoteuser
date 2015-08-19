@@ -6,12 +6,12 @@ final class PhabricatorAuthProviderRemoteUser
   private $adapter;
 
   public function getProviderName() {
-    return pht('Web Server');
+    return pht('Uni Heidelberg - UniID');
   }
 
   public function getDescriptionForCreate() {
     return pht(
-      'Configure Phabricator to use your web server\'s built-in '.
+      'Configure Phabricator to use Uni Heidelberg\'s UniID '.
       'authentication as user credentials.');
   }
 
@@ -25,6 +25,10 @@ final class PhabricatorAuthProviderRemoteUser
 
   public function isLoginFormAButton() {
     return true;
+  }
+
+  protected function getLoginIcon() {
+    return 'UHD';
   }
 
   protected function renderLoginForm(AphrontRequest $request, $mode) {
