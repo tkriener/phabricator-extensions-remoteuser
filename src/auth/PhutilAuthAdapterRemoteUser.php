@@ -25,12 +25,12 @@ function realname_to_username($realname) {
 final class PhutilAuthAdapterRemoteUser extends PhutilAuthAdapter {
 
   public function getProviderName() {
-    return pht('Uni Heidelberg - UniID');
+    return pht('RemoteUser');
   }
 
   public function getDescriptionForCreate() {
     return pht(
-      'Configure a connection to use Uni Heidelberg\'s UniID '.
+      'Configure a connection to use web server authentication '.
       'credentials to log in to Phabricator.');
   }
 
