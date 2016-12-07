@@ -30,39 +30,39 @@ that Phabricator uses to be restricted and adding the information to the rest of
 something like the following directives to your web server configuration (this is Apache2):
 
 
-  <Location "/">
-    MellonEnable "info"
-    MellonVariable "cookie"
-    MellonSecureCookie On
-    MellonCookieDomain your.server.com
-    MellonCookiePath /
-    MellonUser "uid"
-    MellonSubjectConfirmationDataAddressCheck Off
-    # The location all endpoints should be located under.
-    # It is the URL to this location that is used as the second parameter to the metadata generation script.
-    # This path is relative to the root of the web server.
-    MellonEndpointPath /mellon
-    MellonDefaultLoginPath "/"
-    # Configure the SP metadata
-    # This should be the files which were created when creating SP metadata.
-    MellonSPPrivateKeyFile /etc/httpd/mellon/mellon.key
-    MellonSPCertFile /etc/httpd/mellon/mellon.cert
-    MellonSPMetadataFile /etc/httpd/mellon/mellon.xml
-    # IdP metadata. This should be the metadata file you got from the IdP.
-    MellonIdPMetadataFile /etc/httpd/mellon/idp-metadata.xml
-  </Location>
-
-  <Location "/auth/login/RemoteUser:self/">
-    Authtype "Mellon"
-    Require valid-user
-
-    Options None
-    Order allow,deny
-    Allow from all
-
-    # Add information from the auth_mellon session to the request.
-    MellonEnable "auth"
-  </Location>
+    <Location "/">
+      MellonEnable "info"
+      MellonVariable "cookie"
+      MellonSecureCookie On
+      MellonCookieDomain your.server.com
+      MellonCookiePath /
+      MellonUser "uid"
+      MellonSubjectConfirmationDataAddressCheck Off
+      # The location all endpoints should be located under.
+      # It is the URL to this location that is used as the second parameter to the metadata generation script.
+      # This path is relative to the root of the web server.
+      MellonEndpointPath /mellon
+      MellonDefaultLoginPath "/"
+      # Configure the SP metadata
+      # This should be the files which were created when creating SP metadata.
+      MellonSPPrivateKeyFile /etc/httpd/mellon/mellon.key
+        MellonSPCertFile /etc/httpd/mellon/mellon.cert
+      MellonSPMetadataFile /etc/httpd/mellon/mellon.xml
+      # IdP metadata. This should be the metadata file you got from the IdP.
+      MellonIdPMetadataFile /etc/httpd/mellon/idp-metadata.xml
+    </Location>
+         
+    <Location "/auth/login/RemoteUser:self/">
+      Authtype "Mellon"
+      Require valid-user
+    
+      Options None
+      Order allow,deny
+      Allow from all
+    
+      # Add information from the auth_mellon session to the request.
+      MellonEnable "auth"
+    </Location>
 
 
 Security
