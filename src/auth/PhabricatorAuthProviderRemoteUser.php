@@ -28,7 +28,7 @@ final class PhabricatorAuthProviderRemoteUser
   }
 
   protected function getLoginIcon() {
-    return 'UHD';
+    return 'LDAP';
   }
 
   protected function renderLoginForm(AphrontRequest $request, $mode) {
