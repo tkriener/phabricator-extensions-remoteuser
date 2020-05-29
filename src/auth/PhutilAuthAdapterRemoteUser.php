@@ -29,7 +29,7 @@ final class PhutilAuthAdapterRemoteUser extends PhutilAuthAdapter {
   }
 
   public function getAccountRealName() {
-    return $_SERVER['MELLON_cn'];
+    return $_SERVER['MELLON_givenName'] + ' ' + $_SERVER['MELLON_surname'];
   }
 
   public function getAccountEmail() {
