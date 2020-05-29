@@ -91,7 +91,9 @@ final class PhabricatorAuthProviderRemoteUser
       return array($account, $response);
     }
 
-    return array($this->loadOrCreateAccount($account_id), $response);
+    $account = $this->newExternalAccountForIdentifiers($account_id);
+
+    return array($account, $response);
   }
 
   public function supportsAutoLogin() {
